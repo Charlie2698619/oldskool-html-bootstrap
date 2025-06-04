@@ -57,7 +57,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>OldSkool | Bootstrap 5 HTML Template</title>
 
 </head>
-<body class="">
+<body class="" onload="dataLayer.push({
+  event: 'view_item',
+  item_id: 'sku123',
+  item_name: 'Retro Hoodie',
+  price: 59.99,
+  category: 'Hoodies'
+})">
+
 
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMGHR7TM"
@@ -124,9 +131,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <!-- Navbar Cart Icon-->
                         <li class="ms-1 d-inline-block position-relative dropdown-cart">
                             <button class="nav-link me-0 disable-child-pointer border-0 p-0 bg-transparent text-body"
-                                type="button">
+                                type="button" >
                                 Bag (2)
                             </button>
+
+                            <button onclick="dataLayer.push({
+                              event: 'add_to_cart',
+                              item_id: 'sku123',
+                              item_name: 'Retro Hoodie',
+                              price: 59.99,
+                              quantity: 1
+                            })">
+                              Add to Cart
+                            </button>
+
+                            <button onclick="dataLayer.push({
+                              event: 'begin_checkout',
+                              cart_value: 59.99,
+                              currency: 'USD'
+                            })">
+                              Checkout
+                           </button>
+                            <button onclick="dataLayer.push({
+                                event: 'purchase',
+                                        transaction_id: 'TX123456',
+                            value: 59.99,
+                            currency: 'USD',
+                            items: [{
+                              item_name: 'Retro Hoodie',
+                              item_id: 'sku123',
+                              price: 59.99,
+                              quantity: 1
+                            }]
+                          })">
+                            Complete Purchase
+                          </button>                          
                             <div class="cart-dropdown dropdown-menu">
                             
                                 <!-- Cart Header-->
